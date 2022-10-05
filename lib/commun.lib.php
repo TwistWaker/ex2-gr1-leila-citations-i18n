@@ -8,9 +8,9 @@
  * 
  * @return array : Tableau contenant l'auteur et le texte d'une citation.
  */
-function obtenirCitationAleatoire($section) 
+function obtenirCitationAleatoire($section, $langues) 
 {
-    $citationsJson = file_get_contents('data/citations-' . $section . '.json');
+    $citationsJson = file_get_contents("data/citations-$section-$langues.json");
     $citations = json_decode($citationsJson, true);
     $positionAleatoire = rand(0, count($citations)-1);
     $citation = $citations[$positionAleatoire];
